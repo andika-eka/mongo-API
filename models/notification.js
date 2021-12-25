@@ -1,27 +1,25 @@
-import  Mongoose  from "mongoose";
+import Mongoose from "mongoose";
 
 
 const Notification = Mongoose.Schema({
-    reqId:{
+    reqId: {
         type: String,
         required: true
     },
-    title:{
+    title: {
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
     },
-    UserId:{
+    UserId: {
         type: String,
     },
-    file:{
+    file: {
         type: String,
     },
-},
-    {
-        timestamps: true,   
-    }
-)
+}, {
+    timestamps: true,
+})
 export default Mongoose.model("Notifications", Notification)
