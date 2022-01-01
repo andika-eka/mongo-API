@@ -6,6 +6,7 @@ import {
     updateNotifs,
     deleteNotifs,
     getNotifsByUser,
+    getNotifsByCategory,
     getNotifsBySearch,
     getNotifsToday
 } from '../controller/notificationController.js'
@@ -22,5 +23,6 @@ router.delete('/notif/:id', deleteNotifs) //delete by ID
 router.get('/notif/user/:userID', getNotifsByUser) //get by user
 router.get('/notif/search/:search', getNotifsBySearch) //search by name and description
 router.get('/notif/today', getNotifsToday) //search by name and description
+router.get('/notif/category/:category', getNotifsByCategory) //search by name and description
 
 export default router;

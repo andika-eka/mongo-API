@@ -13,6 +13,9 @@ const Notification = Mongoose.Schema({
     description: {
         type: String,
     },
+    category: {
+        type: String,
+    },
     UserId: {
         type: String,
     },

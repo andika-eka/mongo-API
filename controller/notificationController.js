@@ -94,6 +94,19 @@ export const getNotifsByUser = async (req, res) => {
     }
 }
 
+export const getNotifsByCategory = async (req, res) => {
+    try {
+        const notification = await Notification.find({
+            category: req.params.category
+        }).exec();
+        res.status(200).json(notification);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+}
+
 //search by name or description
 export const getNotifsBySearch = async (req, res) => {
     try {
@@ -104,6 +117,11 @@ export const getNotifsBySearch = async (req, res) => {
             },
             {
                 description: {
+                    $regex: new RegExp('.*' + req.params.search + '.*', 'i')
+                }
+            },
+            {
+                category: {
                     $regex: new RegExp('.*' + req.params.search + '.*', 'i')
                 }
             }
